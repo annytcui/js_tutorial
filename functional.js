@@ -41,3 +41,41 @@ function functionalFilter(states) {
   return states.filter(state => state.split(/\s+/).length === 1);
 }
 console.log(functionalFilter(states));
+
+let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// reduce: Iterative solution
+function iterativeSum(array) {
+  let total = 0;
+  array.forEach(function(n) {
+    total += n;
+  });
+  return total;
+}
+console.log(iterativeSum(a));
+
+// reduce: Functional solution
+function functionalSum(array) {
+  return array.reduce((total, n) => { return total += n });
+}
+console.log(functionalSum(a));
+
+// reduce object: Imperative solution
+function imperativeLengths(states) {
+  let lengths = {};
+  states.forEach(function(state) {
+    lengths[state] = state.length;
+  });
+  return lengths;
+}
+console.log(imperativeLengths(states));
+
+
+// reduce object: Functional solution
+function functionalLengths(states) {
+  return states.reduce((lengths, state) => {
+    lengths[state] = state.length;
+    return lengths;
+  }, {});
+}
+console.log(functionalLengths(states));
